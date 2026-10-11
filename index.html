@@ -1,21 +1,361 @@
-<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Happy Birthday ✨</title><style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:'Segoe UI',Arial,sans-serif;color:#fff;background:radial-gradient(ellipse at 50% 30%,#422060,#170d2c 65%,#0c0920);overflow:hidden}.scene{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:24px}.stars{position:absolute;inset:0;pointer-events:none}.star{position:absolute;width:3px;height:3px;background:#fff;border-radius:50%;animation:twinkle 2s infinite alternate}@keyframes twinkle{to{opacity:.15;transform:scale(.4)}}h1{font-size:clamp(32px,7vw,64px);margin:0 0 8px;color:#ffe0f1;text-shadow:0 0 25px #ff69b4}p{color:#e8d4ee}.cake-stage{transition:opacity .8s,transform .8s;display:flex;align-items:center;flex-direction:column}.cake{position:relative;width:240px;height:230px;margin:30px auto 10px;filter:drop-shadow(0 18px 18px #0006);animation:float 3s ease-in-out infinite}@keyframes float{50%{transform:translateY(-9px)}}.plate{position:absolute;bottom:0;left:0;width:240px;height:24px;border-radius:50%;background:#e5b5f3}.tier{position:absolute;left:22px;bottom:13px;width:196px;height:104px;background:linear-gradient(90deg,#f2a3bb,#ffcfdf 45%,#ee8cba);border-radius:18px 18px 22px 22px}.icing{position:absolute;left:22px;bottom:92px;width:196px;height:40px;border-radius:50%;background:#fff0f4;box-shadow:0 12px 0 #fff0f4}.drip{position:absolute;background:#fff0f4;width:20px;height:35px;top:115px;border-radius:0 0 12px 12px}.d1{left:48px}.d2{left:110px;height:46px}.d3{left:177px;height:28px}.candle{position:absolute;bottom:129px;width:13px;height:62px;border-radius:4px;background:repeating-linear-gradient(35deg,#fff 0 9px,#ff75b4 9px 17px)}.c1{left:78px}.c2{left:114px}.c3{left:150px}.flame{position:absolute;top:-25px;left:-3px;width:19px;height:28px;border-radius:70% 30% 65% 35%;background:#ffd15b;transform:rotate(10deg);box-shadow:0 0 20px 8px #ffae4a88;animation:flicker .5s infinite alternate}@keyframes flicker{to{transform:rotate(-9deg) scale(.85,1.1)}}button{border:0;border-radius:30px;background:linear-gradient(120deg,#ff79b6,#ff4d93);color:#fff;font-weight:700;font-size:16px;padding:15px 30px;cursor:pointer;box-shadow:0 8px 25px #ff4d9360;transition:transform .2s}button:hover{transform:translateY(-3px)}.envelope-stage{display:none;opacity:0;transform:translateY(60px) scale(.85);transition:opacity .9s,transform .9s;align-items:center;flex-direction:column}.envelope-stage.show{opacity:1;transform:translateY(0) scale(1)}.envelope{position:relative;width:min(320px,80vw);height:210px;margin:55px auto 20px;cursor:pointer;filter:drop-shadow(0 18px 22px #0006)}.env-back{position:absolute;inset:0;background:#d96395;border-radius:10px}.letter{position:absolute;left:7%;bottom:12px;width:86%;height:180px;background:#fff8f7;border-radius:9px;color:#8b3d66;display:flex;align-items:center;justify-content:center;font-weight:bold;transition:transform 1s;z-index:2}.env-front{position:absolute;inset:0;clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);background:linear-gradient(135deg,#ff8ab8,#ef659c);z-index:3;border-radius:9px}.env-flap{position:absolute;inset:0;clip-path:polygon(0 0,100% 0,50% 56%);background:#ffa5c9;transform-origin:top;transition:transform .7s;z-index:4}.envelope.open .env-flap{transform:rotateX(180deg);z-index:1}.envelope.open .letter{transform:translateY(-115px)}.message{display:none;max-width:620px;max-height:85vh;overflow-y:auto;background:#fff9fc;color:#77365c;padding:30px;border-radius:22px;box-shadow:0 25px 70px #0005;animation:pop .8s both}.message h2{color:#e64691;font-size:32px}.message p{color:#744d68;line-height:1.8;font-size:17px}@keyframes pop{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}.particle{position:fixed;top:-20px;pointer-events:none;animation:fall linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(650deg);opacity:0}}.hint{font-size:14px;opacity:.8;margin-top:8px}.hidden{display:none!important}@media(max-width:480px){.message{padding:22px}.message h2{font-size:27px}}
 
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#170d2c">
+  <title>Chúc mừng sinh nhật anh trai 🎂</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #fff;
+      background: radial-gradient(ellipse at 50% 30%, #422060, #170d2c 65%, #0c0920);
+      overflow-x: hidden;
+    }
+    .scene {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      isolation: isolate;
+    }
+    .stars { position: fixed; inset: 0; pointer-events: none; z-index: -1; }
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: white;
+      animation: twinkle 2s infinite alternate;
+    }
+    @keyframes twinkle { to { opacity: .15; transform: scale(.4); } }
+    h1 {
+      font-size: clamp(30px, 7vw, 60px);
+      color: #ffe0f1;
+      margin: 0 0 8px;
+      text-shadow: 0 0 25px #ff69b4;
+    }
+    p { color: #e8d4ee; }
+    button {
+      border: 0;
+      border-radius: 30px;
+      padding: 15px 30px;
+      background: linear-gradient(120deg, #ff79b6, #ff4d93);
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 25px #ff4d9360;
+      transition: transform .2s;
+    }
+    button:hover { transform: translateY(-3px); }
+    .cake-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: opacity .8s, transform .8s;
+    }
+    .cake {
+      position: relative;
+      width: 240px;
+      height: 230px;
+      margin: 30px auto 10px;
+      filter: drop-shadow(0 18px 18px #0006);
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float { 50% { transform: translateY(-9px); } }
+    .plate {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 240px;
+      height: 24px;
+      border-radius: 50%;
+      background: #e5b5f3;
+    }
+    .tier {
+      position: absolute;
+      left: 22px;
+      bottom: 13px;
+      width: 196px;
+      height: 104px;
+      border-radius: 18px 18px 22px 22px;
+      background: linear-gradient(90deg, #f2a3bb, #ffcfdf 45%, #ee8cba);
+    }
+    .icing {
+      position: absolute;
+      left: 22px;
+      bottom: 92px;
+      width: 196px;
+      height: 40px;
+      border-radius: 50%;
+      background: #fff0f4;
+      box-shadow: 0 12px 0 #fff0f4;
+    }
+    .drip {
+      position: absolute;
+      top: 115px;
+      width: 20px;
+      height: 35px;
+      border-radius: 0 0 12px 12px;
+      background: #fff0f4;
+    }
+    .d1 { left: 48px; }
+    .d2 { left: 110px; height: 46px; }
+    .d3 { left: 177px; height: 28px; }
+    .candle {
+      position: absolute;
+      bottom: 129px;
+      width: 13px;
+      height: 62px;
+      border-radius: 4px;
+      background: repeating-linear-gradient(35deg, #fff 0 9px, #ff75b4 9px 17px);
+    }
+    .c1 { left: 78px; }
+    .c2 { left: 114px; }
+    .c3 { left: 150px; }
+    .flame {
+      position: absolute;
+      top: -25px;
+      left: -3px;
+      width: 19px;
+      height: 28px;
+      border-radius: 70% 30% 65% 35%;
+      background: #ffd15b;
+      transform: rotate(10deg);
+      box-shadow: 0 0 20px 8px #ffae4a88;
+      animation: flicker .5s infinite alternate;
+    }
+    @keyframes flicker { to { transform: rotate(-9deg) scale(.85, 1.1); } }
+    .envelope-stage {
+      display: none;
+      opacity: 0;
+      transform: translateY(60px) scale(.85);
+      transition: opacity .9s, transform .9s;
+      align-items: center;
+      flex-direction: column;
+    }
+    .envelope-stage.show { opacity: 1; transform: translateY(0) scale(1); }
+    .envelope {
+      position: relative;
+      width: min(320px, 80vw);
+      height: 210px;
+      margin: 55px auto 20px;
+      cursor: pointer;
+      filter: drop-shadow(0 18px 22px #0006);
+      perspective: 800px;
+    }
+    .env-back { position: absolute; inset: 0; background: #d96395; border-radius: 10px; }
+    .letter {
+      position: absolute;
+      left: 7%;
+      bottom: 12px;
+      width: 86%;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9px;
+      background: #fff8f7;
+      color: #8b3d66;
+      font-weight: bold;
+      transition: transform 1s;
+      z-index: 2;
+    }
+    .env-front {
+      position: absolute;
+      inset: 0;
+      clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
+      background: linear-gradient(135deg, #ff8ab8, #ef659c);
+      z-index: 3;
+      border-radius: 9px;
+    }
+    .env-flap {
+      position: absolute;
+      inset: 0;
+      clip-path: polygon(0 0, 100% 0, 50% 56%);
+      background: #ffa5c9;
+      transform-origin: top;
+      transition: transform .7s;
+      z-index: 4;
+      backface-visibility: hidden;
+    }
+    .envelope.open .env-flap { transform: rotateX(180deg); z-index: 1; }
+    .envelope.open .letter { transform: translateY(-115px); }
+    .hint { font-size: 14px; opacity: .8; margin-top: 8px; }
+    .message {
+      display: none;
+      width: min(620px, 100%);
+      max-height: 85dvh;
+      overflow-y: auto;
+      padding: 30px;
+      border-radius: 22px;
+      background: #fff9fc;
+      color: #77365c;
+      box-shadow: 0 25px 70px #0005;
+      animation: pop .8s both;
+    }
+    .message h2 { color: #e64691; font-size: clamp(25px, 6vw, 32px); }
+    .message p { color: #744d68; line-height: 1.8; font-size: 17px; }
+    @keyframes pop {
+      from { opacity: 0; transform: scale(.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .particle {
+      position: fixed;
+      top: -20px;
+      pointer-events: none;
+      z-index: 5;
+      animation: fall linear forwards;
+    }
+    @keyframes fall { to { transform: translateY(110vh) rotate(650deg); opacity: 0; } }
+    .hidden { display: none !important; }
+    @media (max-width: 480px) {
+      .message { padding: 22px; }
+      .message p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- File birthday.mp3 nằm cùng thư mục với index.html trên GitHub. -->
+  <audio id="birthdayAudio" src="./birthday.mp3" preload="auto" autoplay loop></audio>
 
-</style></head><body><audio id="birthdayAudio" src="assets/audio/birthday.mp3" preload="auto" autoplay loop></audio><main class="scene"><div class="stars" id="stars"></div><section class="cake-stage" id="cakeStage"><h1>Happy Birthday! 🎉</h1><p>Một điều bất ngờ nhỏ dành riêng cho anh ✨</p><div class="cake"><div class="plate"></div><div class="tier"></div><div class="icing"></div><div class="drip d1"></div><div class="drip d2"></div><div class="drip d3"></div><div class="candle c1"><div class="flame"></div></div><div class="candle c2"><div class="flame"></div></div><div class="candle c3"><div class="flame"></div></div></div><button id="next">🎁 Nhận điều bất ngờ</button></section><section class="envelope-stage" id="envelopeStage"><h1>Gửi đến anh trai 💌</h1><p>Có một lá thư nhỏ đang chờ được mở...</p><div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Mở phong bì"><div class="env-back"></div><div class="letter">For You ❤️</div><div class="env-front"></div><div class="env-flap"></div></div><div class="hint">Chạm vào phong bì để mở thư</div></section><section class="message" id="message"><h2>Chúc mừng sinh nhật anh trai! 🎂🎉</h2><p>Chúc anh tuổi mới thật nhiều sức khỏe, niềm vui và hạnh phúc. Mong rằng mọi dự định của anh đều thuận lợi, công việc suôn sẻ và ngày càng thành công hơn nữa. Chúc anh luôn vững vàng, tự tin trên con đường mình đã chọn, gặp nhiều may mắn và đạt được những điều mình mong muốn. Tuổi mới thật rực rỡ nhé anh! ❤️🎁</p><button onclick="location.reload()">↻ Xem lại từ đầu</button></section></main><script>
-const stars=document.getElementById('stars');for(let i=0;i<75;i++){const s=document.createElement('span');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*2+'s';stars.append(s)}function confetti(n=80){for(let i=0;i<n;i++){let p=document.createElement('span');p.className='particle';p.textContent=['💗','✨','🎊','🌸','💖'][Math.floor(Math.random()*5)];p.style.left=Math.random()*100+'vw';p.style.animationDuration=(3+Math.random()*4)+'s';p.style.fontSize=(12+Math.random()*16)+'px';p.style.animationDelay=Math.random()*1.5+'s';document.body.append(p);setTimeout(()=>p.remove(),8500)}}confetti(35);document.getElementById('next').onclick=()=>{startMusic();confetti(65);const cake=document.getElementById('cakeStage');cake.style.opacity='0';cake.style.transform='translateY(-40px)';setTimeout(()=>{cake.classList.add('hidden');const stage=document.getElementById('envelopeStage');stage.style.display='flex';requestAnimationFrame(()=>stage.classList.add('show'))},800)};let opened=false;function openLetter(){if(opened)return;opened=true;document.getElementById('envelope').classList.add('open');confetti(100);setTimeout(()=>{document.getElementById('envelopeStage').classList.add('hidden');document.getElementById('message').style.display='block'},1500)}document.getElementById('envelope').onclick=openLetter;document.getElementById('envelope').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLetter()}};
+  <main class="scene">
+    <div class="stars" id="stars" aria-hidden="true"></div>
 
-// Chỉ phát bài nhạc MP3 do người dùng cung cấp, không có nhạc mẫu.
-const audio = document.getElementById('birthdayAudio');
-audio.volume = 0.7;
-function startMusic() {
-  if (!audio.paused) return;
-  audio.play().catch(() => {});
-}
-// Thử phát ngay khi mở trang. Trình duyệt có thể chặn autoplay có tiếng.
-startMusic();
-// Nếu bị chặn, phát ngay khi người xem tương tác lần đầu, không cần nút nhạc riêng.
-for (const eventName of ['pointerdown', 'keydown', 'touchstart']) {
-  document.addEventListener(eventName, startMusic, { once: true });
-}
-</script></body></html>
+    <section class="cake-stage" id="cakeStage">
+      <h1>Happy Birthday! 🎉</h1>
+      <p>Một điều bất ngờ nhỏ dành riêng cho anh ✨</p>
+      <div class="cake" aria-label="Bánh sinh nhật có ba ngọn nến" role="img">
+        <div class="plate"></div>
+        <div class="tier"></div>
+        <div class="icing"></div>
+        <div class="drip d1"></div>
+        <div class="drip d2"></div>
+        <div class="drip d3"></div>
+        <div class="candle c1"><div class="flame"></div></div>
+        <div class="candle c2"><div class="flame"></div></div>
+        <div class="candle c3"><div class="flame"></div></div>
+      </div>
+      <button id="next" type="button">🎁 Nhận điều bất ngờ</button>
+    </section>
+
+    <section class="envelope-stage" id="envelopeStage">
+      <h1>Gửi đến anh trai 💌</h1>
+      <p>Có một lá thư nhỏ đang chờ được mở...</p>
+      <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Mở phong bì">
+        <div class="env-back"></div>
+        <div class="letter">For You ❤️</div>
+        <div class="env-front"></div>
+        <div class="env-flap"></div>
+      </div>
+      <div class="hint">Chạm vào phong bì để mở thư</div>
+    </section>
+
+    <section class="message" id="message">
+      <h2>Chúc mừng sinh nhật anh trai! 🎂🎉</h2>
+      <p>
+        Chúc anh tuổi mới thật nhiều sức khỏe, niềm vui và hạnh phúc.
+        Mong rằng mọi dự định của anh đều thuận lợi, công việc suôn sẻ
+        và ngày càng thành công hơn nữa. Chúc anh luôn vững vàng,
+        tự tin trên con đường mình đã chọn, gặp nhiều may mắn và đạt được
+        những điều mình mong muốn. Tuổi mới thật rực rỡ nhé anh! ❤️🎁
+      </p>
+      <button type="button" onclick="location.reload()">↻ Xem lại từ đầu</button>
+    </section>
+  </main>
+
+  <script>
+    const stars = document.getElementById('stars');
+    for (let i = 0; i < 75; i++) {
+      const star = document.createElement('span');
+      star.className = 'star';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 2 + 's';
+      stars.append(star);
+    }
+
+    function confetti(count = 80) {
+      const symbols = ['💗', '✨', '🎊', '🌸', '💖'];
+      for (let i = 0; i < count; i++) {
+        const particle = document.createElement('span');
+        particle.className = 'particle';
+        particle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.animationDuration = (3 + Math.random() * 4) + 's';
+        particle.style.fontSize = (12 + Math.random() * 16) + 'px';
+        particle.style.animationDelay = Math.random() * 1.5 + 's';
+        document.body.append(particle);
+        setTimeout(() => particle.remove(), 8500);
+      }
+    }
+
+    confetti(35);
+
+    // Chỉ sử dụng file birthday.mp3 của bạn, không có nhạc mẫu.
+    const audio = document.getElementById('birthdayAudio');
+    audio.volume = 0.7;
+
+    function startMusic() {
+      if (!audio.paused) return;
+      audio.play().catch(() => {
+        // Trình duyệt có thể chặn autoplay trước khi người dùng tương tác.
+      });
+    }
+
+    // Thử tự động phát ngay khi mở trang.
+    startMusic();
+
+    // Nếu bị chặn, phát nhạc khi người dùng chạm hoặc nhấn lần đầu.
+    ['pointerdown', 'keydown', 'touchstart', 'click'].forEach(eventName => {
+      document.addEventListener(eventName, startMusic);
+    });
+
+    document.getElementById('next').addEventListener('click', () => {
+      startMusic();
+      confetti(65);
+      const cake = document.getElementById('cakeStage');
+      cake.style.opacity = '0';
+      cake.style.transform = 'translateY(-40px)';
+      setTimeout(() => {
+        cake.classList.add('hidden');
+        const stage = document.getElementById('envelopeStage');
+        stage.style.display = 'flex';
+        requestAnimationFrame(() => stage.classList.add('show'));
+      }, 800);
+    });
+
+    let opened = false;
+    function openLetter() {
+      if (opened) return;
+      opened = true;
+      startMusic();
+      document.getElementById('envelope').classList.add('open');
+      confetti(100);
+      setTimeout(() => {
+        document.getElementById('envelopeStage').classList.add('hidden');
+        document.getElementById('message').style.display = 'block';
+      }, 1500);
+    }
+
+    const envelope = document.getElementById('envelope');
+    envelope.addEventListener('click', openLetter);
+    envelope.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openLetter();
+      }
+    });
+  </script>
+</body>
+</html>
